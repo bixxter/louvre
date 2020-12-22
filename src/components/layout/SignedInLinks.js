@@ -1,0 +1,36 @@
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { signOut } from '../../store/actions/authActions';
+import { Redirect } from 'react-router-dom';
+const SignedInLinks = (props) => {
+  const { profile, auth } = props;
+  const admin = profile.role === 'God' ? <NavLink to="/create">Create</NavLink> : null;
+  if (!auth.uid) return <Redirect to="/signin" />;
+  return (
+    <ul className="right">
+      <li>{admin}</li>
+      <li>
+        <NavLink to="/userprofile">{profile.userName}</NavLink>
+      </li>
+      <li>
+        <a onClick={props.signOut}>Log Out</a>
+      </li>
+    </ul>
+  );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    profile: state.firebase.profile,
+    auth: state.firebase.auth,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signOut: () => dispatch(signOut()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignedInLinks);
