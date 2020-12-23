@@ -15,7 +15,7 @@ class CreatePost extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.createProject(this.state);
+    this.props.createPost(this.state);
     this.props.history.push('/');
   };
   render() {
@@ -24,7 +24,7 @@ class CreatePost extends Component {
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">
-          <h5 className="grey-text text-darken-3">Create new subject</h5>
+          <h5 className="grey-text text-darken-3">Create new post</h5>
           <div className="input-field">
             <label htmlFor="title">Title</label>
             <input type="text" id="title" onChange={this.handleChange} />

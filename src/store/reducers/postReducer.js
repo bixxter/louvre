@@ -14,6 +14,17 @@ const postReducer = (state = initState, action) => {
     case 'CREATE_POST_ERROR':
       console.log('create post error', action.err);
       return state;
+    case 'LIKE_SUCCESS':
+      console.log('liked post', action.postToLike);
+      return state;
+    case 'LIKE_ERROR':
+      console.log('like error', action.err);
+    case 'COMMENT_SUCCESS':
+      console.log('liked post', action.comment);
+      return state;
+    case 'COMMENT_ERROR':
+      console.log('like error', action.err);
+      return state;
     default:
       return state;
   }

@@ -8,14 +8,17 @@ class PostSummary extends Component {
   render() {
     const { post } = this.props;
     return (
-      <div className="card z-depth-0 project-summary">
-        <div className="card-content greytext text-darken-3">
-          <span className="card-title">{post.title}</span>
-          <p>
-            posted by: {post.authorFirstName}
-            {post.authorLasttName}
-          </p>
-          <p className="grey-text">date: {moment(post.createdAt.toDate()).calendar()}</p>
+      <div className="post">
+        <div className="card z-depth-1">
+          <div className="card-image postImage">
+            <img src={post.img} alt="" />
+          </div>
+          <div className="card-content postContent">
+            <span className="card-title postTitle">{post.title}</span>
+          </div>
+          {/* <div className="card-content greytext text-darken-3">
+          {moment(post.createdAt.toDate()).calendar()}
+        </div> */}
         </div>
       </div>
     );

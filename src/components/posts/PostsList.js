@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 const PostsList = ({ posts }, props) => {
   const { profile } = props;
   return (
-    <div className="section">
+    <div className="section posts">
       {posts &&
         posts.map((post) => {
           return (

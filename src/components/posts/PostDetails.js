@@ -4,29 +4,41 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
 import moment from 'moment';
+import { likePost } from '../../store/actions/postActions';
+import PostComments from './PostComments';
 
 class PostDetails extends Component {
   render() {
-    const { post, auth } = this.props;
+    const { post, auth, postId } = this.props;
     if (!auth.uid) return <Redirect to="signin" />;
-
     if (post) {
       return (
-        <div className="container section project-deatils">
+        <div className="container section">
           <div className="card z-depth-0">
-            <div className="card-image">
-              <img src={post.img} alt="" />
-            </div>
             <div className="card-content">
               <span className="card-title">{post.title}</span>
-              <p>{post.content}</p>
-
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: post.content,
+                }}></div>
+              <div className="like">
+                <button
+                  className="waves-effect waves-light btn black"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    this.props.likePost(postId);
+                  }}>
+                  <i class="material-icons white-text">flash_on</i>
+                  <i class="material-icons white-text">flash_on</i>
+                  {post.likes}
+                </button>
+              </div>
               <div className="card-action grey lighten-4 grey-text">
-                <div>
-                  Posted by: {post.authorFirstName}
-                  {post.authorLastName}
-                </div>
+                <div>Posted by: {post.authorUserName}</div>
                 <div>{moment(post.createdAt.toDate()).calendar()}</div>
+              </div>
+              <div className="comments">
+                <PostComments post={post} postId={postId} />
               </div>
             </div>
           </div>
@@ -54,8 +66,12 @@ const mapStateToProps = (state, ownProps) => {
     postId: id,
   };
 };
-
+const mapDispatchToProps = (dispatch) => {
+  return {
+    likePost: (postToLike) => dispatch(likePost(postToLike)),
+  };
+};
 export default compose(
-  connect(mapStateToProps),
+  connect(mapStateToProps, mapDispatchToProps),
   firestoreConnect([{ collection: 'posts' }, { collection: 'users' }]),
 )(PostDetails);
