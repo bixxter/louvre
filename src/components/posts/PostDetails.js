@@ -13,7 +13,7 @@ class PostDetails extends Component {
     if (!auth.uid) return <Redirect to="/signin" />;
     if (post) {
       return (
-        <div className="container section">
+        <div className="container section postDetail">
           <div className="card z-depth-0">
             <div className="card-content">
               <div className="postTitle">
@@ -31,6 +31,13 @@ class PostDetails extends Component {
                     </button>
                   </div>
                 ) : null}
+              </div>
+
+              <div class="video-container">
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: post.video,
+                  }}></div>
               </div>
               <div
                 dangerouslySetInnerHTML={{

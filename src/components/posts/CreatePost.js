@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 class CreatePost extends Component {
   state = {
     title: '',
+    video: '',
     content: '',
     img: '',
   };
@@ -29,6 +30,10 @@ class CreatePost extends Component {
           <div className="input-field">
             <label htmlFor="title">Title</label>
             <input type="text" id="title" onChange={this.handleChange} />
+          </div>
+          <div className="input-field">
+            <label htmlFor="video">Video</label>
+            <textarea id="video" className="materialize-textarea" onChange={this.handleChange} />
           </div>
           <div className="input-field">
             <label htmlFor="content">Content</label>
