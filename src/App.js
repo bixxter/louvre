@@ -18,12 +18,12 @@ function App() {
         <Navbar />
         <main>
           <Switch>
-            <Route exact path="/" component={Gallery} />
-            <Route path="/post/:id" component={PostDetails} />
-            <Route path="/signin" component={SignIn} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/create" component={CreatePost} />
-            <Route path="/userprofile" component={Profile} />
+            <Route exact path="/louvre/" component={Gallery} />
+            <Route path="/louvre/post/:id" component={PostDetails} />
+            <Route path="/louvre/signin" component={SignIn} />
+            <Route path="/louvre/signup" component={SignUp} />
+            <Route path="/louvre/create" component={CreatePost} />
+            <Route path="/louvre/userprofile" component={Profile} />
           </Switch>
         </main>
         <Footer />

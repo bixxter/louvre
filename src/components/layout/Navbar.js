@@ -9,7 +9,7 @@ const Navbar = (props) => {
   return (
     <nav className="nav-wrapper louvColor navBar">
       <div className="container">
-        <Link to="/" className="brand-logo louvFont">
+        <Link to="/louvre" className="brand-logo louvFont">
           Louvre
         </Link>
         <ul className="right">{links}</ul>
