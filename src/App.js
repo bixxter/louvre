@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Profile from './components/auth/Profile';
 import SignIn from './components/auth/SignIn';
@@ -9,27 +9,34 @@ import Navbar from './components/layout/Navbar';
 import Gallery from './components/main/Gallery';
 import CreatePost from './components/posts/CreatePost';
 import PostDetails from './components/posts/PostDetails';
+import M from 'materialize-css/dist/js/materialize.min.js';
 
-function App() {
-  return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
-        <Navbar />
-        <main>
-          <Switch>
-            <Route exact path="/louvre/" component={Gallery} />
-            <Route path="/louvre/post/:id" component={PostDetails} />
-            <Route path="/louvre/signin" component={SignIn} />
-            <Route path="/louvre/signup" component={SignUp} />
-            <Route path="/louvre/create" component={CreatePost} />
-            <Route path="/louvre/userprofile" component={Profile} />
-          </Switch>
-        </main>
-        <Footer />
-      </div>
-    </BrowserRouter>
-  );
+class App extends Component {
+  componentDidMount() {
+    let sidenav = document.querySelector('#slide-out');
+    M.Sidenav.init(sidenav, {});
+  }
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Navbar />
+          <main>
+            <Switch>
+              <Route exact path="/" component={Gallery} />
+              <Route path="/post/:id" component={PostDetails} />
+              <Route path="/signin" component={SignIn} />
+              <Route path="/signup" component={SignUp} />
+              <Route path="/create" component={CreatePost} />
+              <Route path="/userprofile" component={Profile} />
+            </Switch>
+          </main>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;

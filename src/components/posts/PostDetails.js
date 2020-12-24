@@ -10,7 +10,7 @@ import PostComments from './PostComments';
 class PostDetails extends Component {
   render() {
     const { post, auth, postId, profile } = this.props;
-    if (!auth.uid) return <Redirect to="signin" />;
+    if (!auth.uid) return <Redirect to="/signin" />;
     if (post) {
       return (
         <div className="container section">
@@ -25,7 +25,7 @@ class PostDetails extends Component {
                       onClick={(e) => {
                         e.preventDefault();
                         this.props.deletePost(postId);
-                        this.props.history.push('/');
+                        this.props.history.push('/louvre');
                       }}>
                       <i className="material-icons">clear</i>
                     </button>
@@ -60,8 +60,8 @@ class PostDetails extends Component {
       );
     } else {
       return (
-        <div className="container center">
-          <p>Loading post</p>
+        <div class="progress">
+          <div class="indeterminate"></div>
         </div>
       );
     }

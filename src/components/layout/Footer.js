@@ -3,8 +3,8 @@ import React from 'react';
 const Header = () => {
   return (
     <footer class="footerMain louvColor ">
-      <div class="footerContent">
-        <div>© 2020 bixxter</div>
+      <div class="footerContent louvFont">
+        <div>bixxter</div>
       </div>
     </footer>
   );

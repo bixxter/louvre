@@ -19,8 +19,9 @@ class CreatePost extends Component {
     this.props.history.push('/');
   };
   render() {
-    const { auth } = this.props;
-    if (!auth.uid) return <Redirect to="signin" />;
+    const { auth, profile } = this.props;
+    if (!auth.uid) return <Redirect to="/signin" />;
+    if (profile.role !== 'neo') return <Redirect to="/" />;
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">
@@ -49,6 +50,7 @@ class CreatePost extends Component {
 const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
+    profile: state.firebase.profile,
   };
 };
 

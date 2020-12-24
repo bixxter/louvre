@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 :root {
-  --bg: #333;
+  --bg: #bdbdbd;
 }
 html {
   min-height: 100%;
-  background: #222;
+  background: url(https://img3.goodfon.com/original/2560x1451/a/55/zvezdy-kosmos-tumannost.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 body {
   margin: 0;
@@ -47,19 +50,31 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
 }
 /*Init*/
 .louvColor {
-  background: var(--bg);
+  background: #222;
   color: #fff;
 }
 .louvFont {
   font-family: 'Bebas Neue', cursive;
 }
+.navBar ul li a {
+  font-size: 1.2em;
+  font-family: 'Bebas Neue', cursive;
+}
+.mainLoader {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+.mainLoader div {
+  margin: auto;
+}
 
 /*Header*/
 .mainHeader {
-  background: url(https://listim.com/upload/2020/02/8e877bd99f1d7afadff081db7d378597.jpg);
+  background: url(https://images.wallpaperscraft.ru/image/relef_skaly_poberezhe_175504_2560x1600.jpg);
   background-size: cover;
   background-position: center;
-  /* background-attachment: fixed; */
+  background-attachment: fixed;
   min-height: 300px;
   color: #fff;
   display: flex;
@@ -94,6 +109,10 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
 }
 .postContent {
   transition: 300ms ease-in-out;
+  display: flex;
+}
+.postContent span {
+  margin: auto 0;
 }
 .posts a:hover .postContent {
   background: rgba(0, 0, 0, 0.7);
@@ -106,4 +125,25 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
   grid-template-columns: 1fr 10fr 1fr;
   grid-gap: 40px;
   padding: 1rem;
+}
+
+@media only screen and (max-width: 900px) {
+  .posts {
+    margin: 0 auto;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    padding: 0.5rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .mainHeader {
+    min-height: 200px;
+    background-position: center;
+    background-attachment: scroll;
+  }
+  h1 {
+    font-size: 2rem;
+  }
 }

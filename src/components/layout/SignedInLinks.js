@@ -5,14 +5,13 @@ import { signOut } from '../../store/actions/authActions';
 import { Redirect } from 'react-router-dom';
 const SignedInLinks = (props) => {
   const { profile, auth } = props;
-  const admin =
-    profile.role === 'neo' ? <NavLink to="/louvre/create">Create opinion</NavLink> : null;
-  if (!auth.uid) return <Redirect to="/louvre/signin" />;
+  const admin = profile.role === 'neo' ? <NavLink to="/create">Create opinion</NavLink> : null;
+  if (!auth.uid) return <Redirect to="/signin" />;
   return (
     <>
       <li>{admin}</li>
       <li>
-        <NavLink to="/louvre/userprofile">{profile.userName}</NavLink>
+        <NavLink to="/userprofile">{profile.userName}</NavLink>
       </li>
       <li>
         <a onClick={props.signOut}>Log Out</a>
