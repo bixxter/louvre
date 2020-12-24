@@ -9,7 +9,7 @@ class PostSummary extends Component {
     const { post } = this.props;
     return (
       <div className="post">
-        <div className="card z-depth-1">
+        <div className="card z-depth-1 louvColor">
           <div className="card-image postImage">
             <img src={post.img} alt="" />
           </div>

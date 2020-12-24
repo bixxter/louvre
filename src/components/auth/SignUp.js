@@ -24,10 +24,10 @@ class SignUp extends Component {
     if (auth.uid) return <Redirect to="/" />;
     return (
       <div className="container">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="white">
           <h5>New Inhabitant</h5>
           <div className="input-field">
-            <label htmlFor="userName">First name</label>
+            <label htmlFor="userName">User name</label>
             <input type="text" id="userName" onChange={this.handleChange} />
           </div>
           <div className="input-field">
@@ -43,7 +43,7 @@ class SignUp extends Component {
             <input type="text" id="img" onChange={this.handleChange} />
           </div>
           <div className="input-field">
-            <button className="btn pink lighten-1 z-depth-0">Sign Up</button>
+            <button className="btn z-depth-0">Sign Up</button>
             <div className="red-text center z-depth-1 p1">
               {authError ? <p>{authError}</p> : null}
             </div>

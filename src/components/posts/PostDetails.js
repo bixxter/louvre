@@ -4,31 +4,45 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
 import moment from 'moment';
-import { likePost } from '../../store/actions/postActions';
+import { likePost, deletePost } from '../../store/actions/postActions';
 import PostComments from './PostComments';
 
 class PostDetails extends Component {
   render() {
-    const { post, auth, postId } = this.props;
+    const { post, auth, postId, profile } = this.props;
     if (!auth.uid) return <Redirect to="signin" />;
     if (post) {
       return (
         <div className="container section">
           <div className="card z-depth-0">
             <div className="card-content">
-              <span className="card-title">{post.title}</span>
+              <div className="postTitle">
+                <span className="card-title">{post.title}</span>
+                {profile.role === 'neo' ? (
+                  <div className="delPost">
+                    <button
+                      className="btn z-depth-0 red"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        this.props.deletePost(postId);
+                        this.props.history.push('/');
+                      }}>
+                      <i className="material-icons">clear</i>
+                    </button>
+                  </div>
+                ) : null}
+              </div>
               <div
                 dangerouslySetInnerHTML={{
                   __html: post.content,
                 }}></div>
               <div className="like">
                 <button
-                  className="waves-effect waves-light btn black"
+                  className="waves-effect waves-light btn black pulse"
                   onClick={(e) => {
                     e.preventDefault();
                     this.props.likePost(postId);
                   }}>
-                  <i class="material-icons white-text">flash_on</i>
                   <i class="material-icons white-text">flash_on</i>
                   {post.likes}
                 </button>
@@ -69,6 +83,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     likePost: (postToLike) => dispatch(likePost(postToLike)),
+    deletePost: (post) => dispatch(deletePost(post)),
   };
 };
 export default compose(

@@ -7,12 +7,12 @@ const Navbar = (props) => {
   const { auth, profile } = props;
   const links = auth.uid ? <SignedInLinks profile={profile} /> : <SignedOutLinks />;
   return (
-    <nav className="nav-wrapper">
+    <nav className="nav-wrapper louvColor navBar">
       <div className="container">
-        <Link to="/" className="brand-logo">
+        <Link to="/" className="brand-logo louvFont">
           Louvre
         </Link>
-        {links}
+        <ul className="right">{links}</ul>
       </div>
     </nav>
   );

@@ -4,17 +4,13 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
-class Dashboard extends Component {
+class Gallery extends Component {
   render() {
     const { posts, auth } = this.props;
     if (!auth.uid) return <Redirect to="signin" />;
     return (
       <div>
-        <div className="dashboard container">
-          <div className="col s12 m6">
-            <PostsList posts={posts} />
-          </div>
-        </div>
+        <PostsList posts={posts} />
       </div>
     );
   }
@@ -30,4 +26,4 @@ const mapStateToProps = (state) => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([{ collection: 'posts' }]),
-)(Dashboard);
+)(Gallery);

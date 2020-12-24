@@ -5,15 +5,17 @@ import { connect } from 'react-redux';
 const PostsList = ({ posts }, props) => {
   const { profile } = props;
   return (
-    <div className="section posts">
-      {posts &&
-        posts.map((post) => {
-          return (
-            <Link to={'/post/' + post.id} key={post.id}>
-              <PostSummary post={post} profile={profile} />
-            </Link>
-          );
-        })}
+    <div className="gallery">
+      <div className="section posts container">
+        {posts &&
+          posts.map((post) => {
+            return (
+              <Link to={'/post/' + post.id} key={post.id}>
+                <PostSummary post={post} profile={profile} />
+              </Link>
+            );
+          })}
+      </div>
     </div>
   );
 };
