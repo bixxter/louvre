@@ -18,7 +18,12 @@ const Navbar = (props) => {
           <i class="material-icons">menu</i>
         </a>
         <div className="hide-on-med-and-down">
-          <ul className="right ">{links}</ul>
+          <ul className="right ">
+            <li>
+              <Link to="/welcome">About</Link>
+            </li>
+            {links}
+          </ul>
         </div>
       </div>
       <ul id="slide-out" class="sidenav navBarMob">
@@ -27,6 +32,9 @@ const Navbar = (props) => {
           <NavLink to="/" className="louvFont">
             Louvre
           </NavLink>
+        </li>
+        <li>
+          <Link to="/welcome">About</Link>
         </li>
         {links}
       </ul>

@@ -6,16 +6,40 @@ import { Redirect } from 'react-router-dom';
 import moment from 'moment';
 import { likePost, deletePost } from '../../store/actions/postActions';
 import PostComments from './PostComments';
+import EditPost from './EditPost';
 
 class PostDetails extends Component {
+  state = {
+    editMode: false,
+  };
   render() {
     const { post, auth, postId, profile } = this.props;
+    const editor = <EditPost post={post} postId={postId} />;
     if (!auth.uid) return <Redirect to="/signin" />;
     if (post) {
       return (
         <div className="container section postDetail">
           <div className="card z-depth-0">
             <div className="card-content">
+              <div className="editMode right">
+                {profile.role === 'neo' ? (
+                  <button
+                    className="btn louvColor"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      this.setState({
+                        editMode: !this.state.editMode,
+                      });
+                    }}>
+                    {this.state.editMode === false ? (
+                      <i class="material-icons">edit</i>
+                    ) : (
+                      <i class="material-icons">cancel</i>
+                    )}
+                  </button>
+                ) : null}
+              </div>
+              {this.state.editMode === true ? editor : null}
               <div className="postTitle">
                 <span className="card-title">{post.title}</span>
                 <button
@@ -26,26 +50,29 @@ class PostDetails extends Component {
                   <i className="material-icons">chevron_left</i>
                 </button>
                 {profile.role === 'neo' ? (
-                  <div className="delPost right">
-                    <button
-                      className="btn z-depth-0 red"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        this.props.deletePost(postId);
-                        this.props.history.push('/');
-                      }}>
-                      <i className="material-icons">clear</i>
-                    </button>
+                  <div className="edit right">
+                    <div className="delPost">
+                      <button
+                        className="btn z-depth-0 red"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          this.props.deletePost(postId);
+                          this.props.history.push('/');
+                        }}>
+                        <i className="material-icons">clear</i>
+                      </button>
+                    </div>
                   </div>
                 ) : null}
               </div>
-
-              <div class="video-container">
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: post.video,
-                  }}></div>
-              </div>
+              {post.video ? (
+                <div class="video-container">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: post.video,
+                    }}></div>
+                </div>
+              ) : null}
               <div
                 dangerouslySetInnerHTML={{
                   __html: post.content,

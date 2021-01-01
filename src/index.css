@@ -36,7 +36,7 @@ input[type='text']:not(.browser-default):focus:not([readonly]),
 input[type='email']:not(.browser-default):focus:not([readonly]),
 input[type='password']:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-color: #ec407a;
+  border-color: var(--bg);
   box-shadow: none;
 }
 
@@ -44,7 +44,7 @@ input[type='text']:not(.browser-default):focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label,
 input[type='email']:not(.browser-default):focus:not([readonly]) + label,
 input[type='password']:not(.browser-default):focus:not([readonly]) + label {
-  color: #ec407a !important;
+  color: var(--bg) !important;
 }
 /*Init*/
 .louvColor {
@@ -129,6 +129,14 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
   grid-template-columns: 1fr 10fr 1fr;
   grid-gap: 40px;
   padding: 1rem;
+}
+/*Intro page*/
+.introContent section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+  padding: 1rem;
+  border-bottom: 2px solid var(--bg);
 }
 
 @media only screen and (max-width: 900px) {

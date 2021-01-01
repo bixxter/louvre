@@ -10,6 +10,7 @@ import Gallery from './components/main/Gallery';
 import CreatePost from './components/posts/CreatePost';
 import PostDetails from './components/posts/PostDetails';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import Intro from './components/main/Intro';
 
 class App extends Component {
   componentDidMount() {
@@ -25,6 +26,7 @@ class App extends Component {
           <main>
             <Switch>
               <Route exact path="/" component={Gallery} />
+              <Route exact path="/welcome" component={Intro} />
               <Route path="/post/:id" component={PostDetails} />
               <Route path="/signin" component={SignIn} />
               <Route path="/signup" component={SignUp} />

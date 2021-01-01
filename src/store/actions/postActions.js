@@ -94,3 +94,26 @@ export const deletePost = (post) => {
       });
   };
 };
+
+export const editPost = (post) => {
+  return (dispatch, getState, { getFirestore }) => {
+    const firestore = getFirestore();
+    const profile = getState().firebase.profile;
+    const authorId = getState().firebase.auth.uid;
+    firestore
+      .collection('posts')
+      .doc(post.id)
+      .update({
+        title: post.title,
+        video: post.video,
+        content: post.content,
+        img: post.img,
+      })
+      .then(() => {
+        dispatch({ type: 'EDITED_POST_SUCCESS', post });
+      })
+      .catch((err) => {
+        dispatch({ type: 'EDITED_POST_ERROR', err });
+      });
+  };
+};
