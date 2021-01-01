@@ -18,14 +18,21 @@ class PostDetails extends Component {
             <div className="card-content">
               <div className="postTitle">
                 <span className="card-title">{post.title}</span>
+                <button
+                  className="btn z-depth-0 grey"
+                  onClick={(e) => {
+                    this.props.history.push('/');
+                  }}>
+                  <i className="material-icons">chevron_left</i>
+                </button>
                 {profile.role === 'neo' ? (
-                  <div className="delPost">
+                  <div className="delPost right">
                     <button
                       className="btn z-depth-0 red"
                       onClick={(e) => {
                         e.preventDefault();
                         this.props.deletePost(postId);
-                        this.props.history.push('/louvre');
+                        this.props.history.push('/');
                       }}>
                       <i className="material-icons">clear</i>
                     </button>
@@ -45,7 +52,7 @@ class PostDetails extends Component {
                 }}></div>
               <div className="like">
                 <button
-                  className="waves-effect waves-light btn black pulse"
+                  className="btn black pulse"
                   onClick={(e) => {
                     e.preventDefault();
                     this.props.likePost(postId);

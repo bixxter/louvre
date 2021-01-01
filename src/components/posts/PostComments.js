@@ -17,8 +17,8 @@ class PostComments extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
     this.props.leaveComment(this.state);
+    e.target.reset();
   };
   render() {
     const { post, auth, profile } = this.props;
@@ -28,7 +28,7 @@ class PostComments extends Component {
           <form onSubmit={this.handleSubmit}>
             <label htmlFor="comment">Comment</label>
             <textarea id="comment" className="materialize-textarea" onChange={this.handleChange} />
-            <button type="submit" className="btn z-depth-0 ">
+            <button type="submit" className="btn z-depth-0 louvColor">
               Leave a comment
             </button>
           </form>
@@ -48,7 +48,7 @@ class PostComments extends Component {
                   <div className="deleteComment">
                     {auth.uid === comment.userId || profile.role === 'neo' ? (
                       <button
-                        className="btn z-depth-0 red"
+                        className="btn z-depth-0 louvColor"
                         onClick={(e) => {
                           e.preventDefault();
                           this.props.deleteComment(comment);

@@ -11,10 +11,10 @@ function Profile(props) {
         <div className="card-image">
           <img src={profile.img} alt="userImg" className="responsive-img" />
         </div>
-        <div className="card-content">
-          <h1>{profile.userName}</h1>
-          <p>e-mail: {auth.email}</p>
-          <p>role: {profile.role === 'neo' ? <h5 className="green-text">neo</h5> : profile.role}</p>
+        <div className="card-content louvFont">
+          <h1 className="louvFont">{profile.userName}</h1>
+          <h5>e-mail: {auth.email}</h5>
+          <h5>role: {profile.role === 'neo' ? 'neo' : profile.role}</h5>
         </div>
       </div>
     </div>

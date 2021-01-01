@@ -32,7 +32,7 @@ class CreatePost extends Component {
             <input type="text" id="title" onChange={this.handleChange} />
           </div>
           <div className="input-field">
-            <label htmlFor="video">Video</label>
+            <label htmlFor="video">Media</label>
             <textarea id="video" className="materialize-textarea" onChange={this.handleChange} />
           </div>
           <div className="input-field">
@@ -44,7 +44,7 @@ class CreatePost extends Component {
             <input type="text" id="img" onChange={this.handleChange} />
           </div>
           <div className="input-field">
-            <button className="btn pink lighten-1 z-depth-0">Create</button>
+            <button className="btn louvColor lighten-1 z-depth-0">Create</button>
           </div>
         </form>
       </div>

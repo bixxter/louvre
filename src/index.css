@@ -1,19 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 :root {
-  --bg: #bdbdbd;
+  --bg: #980028;
 }
-html {
-  min-height: 100%;
-  background: url(https://img3.goodfon.com/original/2560x1451/a/55/zvezdy-kosmos-tumannost.jpg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
+
 body {
   margin: 0;
   padding: 0;
   font-family: Helvetica, sans-serif;
+  /* background: url(https://img3.goodfon.com/original/2560x1451/a/55/zvezdy-kosmos-tumannost.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; */
 }
 .App {
   display: flex;
@@ -50,7 +48,7 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
 }
 /*Init*/
 .louvColor {
-  background: #222;
+  background: #980028;
   color: #fff;
 }
 .louvFont {
@@ -114,8 +112,14 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
 .postContent span {
   margin: auto 0;
 }
+.post {
+  border-bottom: 2px solid transparent;
+}
+.post:hover {
+  border-bottom: 2px solid var(--bg);
+}
 .posts a:hover .postContent {
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--bg);
   color: #fff;
 }
 /*Post comments*/

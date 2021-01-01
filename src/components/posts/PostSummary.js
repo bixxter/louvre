@@ -9,7 +9,7 @@ class PostSummary extends Component {
     const { post } = this.props;
     return (
       <div className="post">
-        <div className="card z-depth-1">
+        <div className="card z-depth-0">
           <div className="card-image postImage">
             <img src={post.img} alt="" />
           </div>
@@ -17,8 +17,8 @@ class PostSummary extends Component {
             <span className="card-title postTitle">{post.title}</span>
           </div>
           {/* <div className="card-content greytext text-darken-3">
-          {moment(post.createdAt.toDate()).calendar()}
-        </div> */}
+            {moment(post.createdAt.toDate()).calendar()}
+          </div> */}
         </div>
       </div>
     );

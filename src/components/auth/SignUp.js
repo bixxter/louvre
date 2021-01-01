@@ -43,7 +43,7 @@ class SignUp extends Component {
             <input type="text" id="img" onChange={this.handleChange} />
           </div>
           <div className="input-field">
-            <button className="btn z-depth-0">Sign Up</button>
+            <button className="btn louvColor z-depth-0">Sign Up</button>
             <div className="red-text center z-depth-1 p1">
               {authError ? <p>{authError}</p> : null}
             </div>
