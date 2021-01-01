@@ -44,6 +44,12 @@ const postReducer = (state = initState, action) => {
     case 'DELETE_COMMENT_ERROR':
       console.log('deleted post comment error', action.err);
       return state;
+    case 'DELETE_USER_SUCCESS':
+      console.log('deleted user', action.user);
+      return state;
+    case 'DELETE_USER_ERROR':
+      console.log('deleted user error', action.err);
+      return state;
     default:
       return state;
   }

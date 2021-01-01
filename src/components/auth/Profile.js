@@ -8,13 +8,11 @@ function Profile(props) {
   return (
     <div className="container">
       <div className="card hogBlock profileCard louvColor">
-        <div className="card-image">
-          <img src={profile.img} alt="userImg" className="responsive-img" />
-        </div>
-        <div className="card-content louvFont">
-          <h1 className="louvFont">{profile.userName}</h1>
-          <h5>e-mail: {auth.email}</h5>
-          <h5>role: {profile.role === 'neo' ? 'neo' : profile.role}</h5>
+        <img src={profile.img} alt="userImg" className="responsive-img" />
+        <div className=" profileText louvFont">
+          <p className="louvFont">{profile.userName}</p>
+          <p>e-mail: {auth.email}</p>
+          <p>role: {profile.role === 'neo' ? 'neo' : profile.role}</p>
         </div>
       </div>
     </div>

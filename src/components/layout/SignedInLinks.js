@@ -9,6 +9,9 @@ const SignedInLinks = (props) => {
   if (!auth.uid) return <Redirect to="/signin" />;
   return (
     <>
+      <li>
+        <NavLink to="/users">People</NavLink>
+      </li>
       <li>{admin}</li>
       <li>
         <NavLink to="/userprofile">{profile.userName}</NavLink>

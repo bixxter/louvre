@@ -117,3 +117,20 @@ export const editPost = (post) => {
       });
   };
 };
+
+export const deleteUser = (user) => {
+  return (dispatch, getState, { getFirestore, getFirebase }) => {
+    const firestore = getFirestore();
+    const firebase = getFirebase();
+    firestore
+      .collection('users')
+      .doc(user)
+      .delete()
+      .then(() => {
+        dispatch({ type: 'DELETE_USER_SUCCESS', user });
+      })
+      .catch((err) => {
+        dispatch({ type: 'DELETE_USER_ERROR', err });
+      });
+  };
+};

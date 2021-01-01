@@ -8,7 +8,7 @@ class SignUp extends Component {
     email: '',
     password: '',
     userName: '',
-    img: '',
+    img: 'https://i2.wp.com/www.vooks.net/img/2016/06/HddtBOT.png?fit=1920%2C1080&ssl=1',
   };
   handleChange = (e) => {
     this.setState({

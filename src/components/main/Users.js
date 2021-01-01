@@ -1,0 +1,78 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
+import { deleteUser } from '../../store/actions/postActions';
+const Users = (props) => {
+  const { users, auth, profile } = props;
+  if (users) {
+    return (
+      <div className="container">
+        <div className="usersList">
+          {users &&
+            Object.keys(users).map((user, i) => {
+              return (
+                <div className="card user louvColor">
+                  <img
+                    src={users[user] && users[user].img}
+                    alt="userImg"
+                    className="responsive-img"
+                  />
+                  <div className=" userText louvFont">
+                    <p className="louvFont">{users[user] && users[user].userName}</p>
+                  </div>
+                  <div>
+                    {profile.role === 'neo' ? (
+                      <button
+                        className="btn z-depth-0 louvColor"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          props.deleteUser(user);
+                          props.history.push('/users');
+                        }}>
+                        <i className="material-icons">clear</i>
+                      </button>
+                    ) : null}
+                  </div>
+                </div>
+              );
+            })}
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="mainLoader">
+        <div className="preloader-wrapper big active">
+          <div className="spinner-layer spinner-blue-only ">
+            <div className="circle-clipper left">
+              <div className="circle"></div>
+            </div>
+            <div className="gap-patch">
+              <div className="circle"></div>
+            </div>
+            <div className="circle-clipper right">
+              <div className="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+};
+const mapStateToProps = (state) => {
+  return {
+    users: state.firestore.data.users,
+    auth: state.firebase.auth,
+    profile: state.firebase.profile,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteUser: (user) => dispatch(deleteUser(user)),
+  };
+};
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  firestoreConnect([{ collection: 'users' }]),
+)(Users);

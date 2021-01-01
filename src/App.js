@@ -7,6 +7,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Navbar from './components/layout/Navbar';
 import Gallery from './components/main/Gallery';
+import Users from './components/main/Users';
 import CreatePost from './components/posts/CreatePost';
 import PostDetails from './components/posts/PostDetails';
 import M from 'materialize-css/dist/js/materialize.min.js';
@@ -27,6 +28,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Gallery} />
               <Route exact path="/welcome" component={Intro} />
+              <Route exact path="/users" component={Users} />
               <Route path="/post/:id" component={PostDetails} />
               <Route path="/signin" component={SignIn} />
               <Route path="/signup" component={SignUp} />
