@@ -12,6 +12,7 @@ export const createPost = (post) => {
         createdAt: new Date(),
         likes: 0,
         comments: [],
+        answers: [],
       })
       .then(() => {
         dispatch({ type: 'CREATE_POST_SUCCESS', post });
@@ -59,6 +60,25 @@ export const leaveComment = (comment) => {
       });
   };
 };
+export const subComment = (comment) => {
+  return (dispatch, getState, { getFirestore, getFirebase }) => {
+    const firestore = getFirestore();
+    const firebase = getFirebase();
+    console.log(comment);
+    firestore
+      .collection('posts')
+      .doc(comment.postId)
+      .update({
+        answers: firebase.firestore.FieldValue.arrayUnion(comment),
+      })
+      .then(() => {
+        dispatch({ type: 'COMMENT_SUCCESS', comment });
+      })
+      .catch((err) => {
+        dispatch({ type: 'COMMENT_ERROR', err });
+      });
+  };
+};
 export const deleteComment = (comment) => {
   return (dispatch, getState, { getFirestore, getFirebase }) => {
     const firestore = getFirestore();
@@ -81,7 +101,6 @@ export const deleteComment = (comment) => {
 export const deletePost = (post) => {
   return (dispatch, getState, { getFirestore, getFirebase }) => {
     const firestore = getFirestore();
-    const firebase = getFirebase();
     firestore
       .collection('posts')
       .doc(post)
@@ -98,8 +117,6 @@ export const deletePost = (post) => {
 export const editPost = (post) => {
   return (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
-    const profile = getState().firebase.profile;
-    const authorId = getState().firebase.auth.uid;
     firestore
       .collection('posts')
       .doc(post.id)
@@ -121,7 +138,6 @@ export const editPost = (post) => {
 export const deleteUser = (user) => {
   return (dispatch, getState, { getFirestore, getFirebase }) => {
     const firestore = getFirestore();
-    const firebase = getFirebase();
     firestore
       .collection('users')
       .doc(user)

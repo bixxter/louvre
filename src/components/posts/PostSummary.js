@@ -16,9 +16,9 @@ class PostSummary extends Component {
           <div className="card-content postContent">
             <span className="card-title postTitle">{post.title}</span>
           </div>
-          {/* <div className="card-content greytext text-darken-3">
+          <div className="card-content greytext text-darken-3">
             {moment(post.createdAt.toDate()).calendar()}
-          </div> */}
+          </div>
         </div>
       </div>
     );

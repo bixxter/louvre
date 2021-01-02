@@ -127,8 +127,23 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
   margin: 20px auto;
   display: grid;
   grid-template-columns: 1fr 10fr 1fr;
-  grid-gap: 40px;
+  grid-gap: 10px;
   padding: 1rem;
+  font-size: 1rem;
+}
+.commentImg img {
+  width: 50px;
+}
+.commentsSection {
+  margin-top: 2rem;
+}
+.commentFunc {
+  color: var(--bg);
+}
+.commentFunc:hover {
+  color: var(--bg);
+  cursor: pointer;
+  text-decoration: underline;
 }
 /*Intro page*/
 .introContent section {
@@ -162,8 +177,10 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
 .user {
   display: grid;
 }
-.user img,
-div {
+.user img {
+  margin: 0 auto;
+}
+.userText {
   margin: 0 auto;
 }
 @media only screen and (max-width: 900px) {
