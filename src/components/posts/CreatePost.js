@@ -8,6 +8,7 @@ class CreatePost extends Component {
     video: '',
     content: '',
     img: '',
+    tags: '',
   };
   handleChange = (e) => {
     this.setState({
@@ -42,6 +43,13 @@ class CreatePost extends Component {
           <div className="input-field">
             <label htmlFor="img">Image</label>
             <input type="text" id="img" onChange={this.handleChange} />
+          </div>
+          <div className="input-field">
+            <label htmlFor="tags">Tags</label>
+            <input type="text" id="tags" onChange={this.handleChange} />
+            <span className="red-text">
+              *please use "," to devide tags <br /> example: video, audio, lol
+            </span>
           </div>
           <div className="input-field">
             <button className="btn louvColor lighten-1 z-depth-0">Create</button>

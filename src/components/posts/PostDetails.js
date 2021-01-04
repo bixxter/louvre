@@ -32,9 +32,9 @@ class PostDetails extends Component {
                       });
                     }}>
                     {this.state.editMode === false ? (
-                      <i class="material-icons">edit</i>
+                      <i className="material-icons">edit</i>
                     ) : (
-                      <i class="material-icons">cancel</i>
+                      <i className="material-icons">cancel</i>
                     )}
                   </button>
                 ) : null}
@@ -66,7 +66,7 @@ class PostDetails extends Component {
                 ) : null}
               </div>
               {post.video ? (
-                <div class="video-container">
+                <div className="video-container">
                   <div
                     dangerouslySetInnerHTML={{
                       __html: post.video,
@@ -84,7 +84,7 @@ class PostDetails extends Component {
                     e.preventDefault();
                     this.props.likePost(postId);
                   }}>
-                  <i class="material-icons white-text">flash_on</i>
+                  <i className="material-icons white-text">flash_on</i>
                   {post.likes}
                 </button>
               </div>

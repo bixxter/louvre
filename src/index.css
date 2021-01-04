@@ -48,8 +48,11 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
 }
 /*Init*/
 .louvColor {
-  background: #980028;
+  background: var(--bg);
   color: #fff;
+}
+.louvFontColor {
+  color: var(--bg);
 }
 .louvFont {
   font-family: 'Bebas Neue', cursive;
@@ -122,17 +125,31 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
   background: var(--bg);
   color: #fff;
 }
+.tags {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 0.2rem;
+  width: 100%;
+}
+.tag {
+  background: var(--bg);
+  padding: 0.2rem;
+  color: #fff;
+  border-radius: 0.1rem;
+  text-align: center;
+}
 /*Post comments*/
 .commentBlock {
   margin: 20px auto;
   display: grid;
-  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 10px;
   padding: 1rem;
   font-size: 1rem;
 }
-.commentImg img {
-  width: 50px;
+.commentBlock img {
+  max-height: 60px;
+  margin: 0 auto;
 }
 .commentsSection {
   margin-top: 2rem;
@@ -166,6 +183,7 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
   padding: 1rem;
   margin: auto;
 }
+/*People section*/
 .usersList {
   margin: 0 auto;
   margin: 20px auto;
@@ -178,10 +196,10 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
   display: grid;
 }
 .user img {
-  margin: 0 auto;
+  margin: auto;
 }
 .userText {
-  margin: 0 auto;
+  margin: auto;
 }
 @media only screen and (max-width: 900px) {
   .posts,

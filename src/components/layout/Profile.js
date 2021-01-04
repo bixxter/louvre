@@ -5,10 +5,13 @@ function Profile(props) {
   return (
     <div className="user-view">
       <div className="background">
-        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f41cdc64-679a-4284-9d6f-3e75890cdf70/ddmntt4-8045c4e4-48bd-4a27-a795-07067ca5265f.jpg/v1/fill/w_1264,h_632,q_70,strp/deviantart_banner_by_astrospaze_ddmntt4-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD02NDAiLCJwYXRoIjoiXC9mXC9mNDFjZGM2NC02NzlhLTQyODQtOWQ2Zi0zZTc1ODkwY2RmNzBcL2RkbW50dDQtODA0NWM0ZTQtNDhiZC00YTI3LWE3OTUtMDcwNjdjYTUyNjVmLmpwZyIsIndpZHRoIjoiPD0xMjgwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.B68ClwHam1WzfazJ8GUu1td-2CcVGgpkd4HORhyJdAo" />
+        <img
+          src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f41cdc64-679a-4284-9d6f-3e75890cdf70/ddmntt4-8045c4e4-48bd-4a27-a795-07067ca5265f.jpg/v1/fill/w_1264,h_632,q_70,strp/deviantart_banner_by_astrospaze_ddmntt4-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD02NDAiLCJwYXRoIjoiXC9mXC9mNDFjZGM2NC02NzlhLTQyODQtOWQ2Zi0zZTc1ODkwY2RmNzBcL2RkbW50dDQtODA0NWM0ZTQtNDhiZC00YTI3LWE3OTUtMDcwNjdjYTUyNjVmLmpwZyIsIndpZHRoIjoiPD0xMjgwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.B68ClwHam1WzfazJ8GUu1td-2CcVGgpkd4HORhyJdAo"
+          alt="background"
+        />
       </div>
       <Link to="/userprofile">
-        <img className="circle" src={props.profile.img} />
+        <img className="circle" src={props.profile.img} alt="profile_pic" />
       </Link>
       <Link to="/userprofile">
         <span className="white-text name">{props.profile.userName}</span>

@@ -14,8 +14,8 @@ const Navbar = (props) => {
         <Link to="/" className="brand-logo louvFont">
           Louvre
         </Link>
-        <a href="#" data-target="slide-out" className="sidenav-trigger">
-          <i class="material-icons">menu</i>
+        <a href="/" data-target="slide-out" className="sidenav-trigger">
+          <i className="material-icons">menu</i>
         </a>
         <div className="hide-on-med-and-down">
           <ul className="right ">
@@ -26,7 +26,7 @@ const Navbar = (props) => {
           </ul>
         </div>
       </div>
-      <ul id="slide-out" class="sidenav navBarMob">
+      <ul id="slide-out" className="sidenav navBarMob">
         <li>{userMobile}</li>
         <li>
           <NavLink to="/" className="louvFont">
