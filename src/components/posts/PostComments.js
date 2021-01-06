@@ -44,7 +44,7 @@ class PostComments extends Component {
                     <div className="commentContent">
                       <span>{comment.userName}</span>
                       <p>{comment.comment}</p>
-                      <span className="commentFunc green-text">answer</span>
+                      <span className="commentFunc green-text">answer </span>
                       {auth.uid === comment.userId || profile.role === 'neo' ? (
                         <span
                           className="commentFunc"
