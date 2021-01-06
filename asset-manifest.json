@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/louvre/static/css/main.deb8636b.chunk.css",
-    "main.js": "/louvre/static/js/main.41723170.chunk.js",
-    "main.js.map": "/louvre/static/js/main.41723170.chunk.js.map",
+    "main.css": "/louvre/static/css/main.4ae439cf.chunk.css",
+    "main.js": "/louvre/static/js/main.ea2eaab9.chunk.js",
+    "main.js.map": "/louvre/static/js/main.ea2eaab9.chunk.js.map",
     "runtime-main.js": "/louvre/static/js/runtime-main.dd4e574d.js",
     "runtime-main.js.map": "/louvre/static/js/runtime-main.dd4e574d.js.map",
     "static/js/2.e5b3792d.chunk.js": "/louvre/static/js/2.e5b3792d.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.79da0f28.chunk.js": "/louvre/static/js/3.79da0f28.chunk.js",
     "static/js/3.79da0f28.chunk.js.map": "/louvre/static/js/3.79da0f28.chunk.js.map",
     "index.html": "/louvre/index.html",
-    "static/css/main.deb8636b.chunk.css.map": "/louvre/static/css/main.deb8636b.chunk.css.map",
+    "static/css/main.4ae439cf.chunk.css.map": "/louvre/static/css/main.4ae439cf.chunk.css.map",
     "static/js/2.e5b3792d.chunk.js.LICENSE.txt": "/louvre/static/js/2.e5b3792d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.dd4e574d.js",
     "static/js/2.e5b3792d.chunk.js",
-    "static/css/main.deb8636b.chunk.css",
-    "static/js/main.41723170.chunk.js"
+    "static/css/main.4ae439cf.chunk.css",
+    "static/js/main.ea2eaab9.chunk.js"
   ]
 }
