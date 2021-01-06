@@ -9,6 +9,7 @@ class EditPost extends Component {
     video: this.props.post.video,
     content: this.props.post.content,
     img: this.props.post.img,
+    tags: this.props.post.tags,
   };
   handleChange = (e) => {
     this.setState({
@@ -51,6 +52,10 @@ class EditPost extends Component {
           <div className="input-field">
             <label htmlFor="img">Image</label>
             <input type="text" id="img" onChange={this.handleChange} value={this.state.img} />
+          </div>
+          <div className="input-field">
+            <label htmlFor="tags">Tags</label>
+            <input type="text" id="tags" onChange={this.handleChange} value={this.state.tags} />
           </div>
           <div className="input-field">
             <button className="btn louvColor lighten-1 z-depth-0">Change</button>

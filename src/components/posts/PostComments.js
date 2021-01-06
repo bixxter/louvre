@@ -38,7 +38,7 @@ class PostComments extends Component {
               return (
                 <>
                   <div className="commentBlock z-depth-0" key={i}>
-                    <img src={comment.userImg} alt="userImg" className="circle responsive-img" />
+                    <img src={comment.userImg} alt="userImg" />
                     <div className="commentContent">
                       <span>{comment.userName}</span>
                       <p>{comment.comment}</p>

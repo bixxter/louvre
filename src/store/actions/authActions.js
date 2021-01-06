@@ -24,7 +24,6 @@ export const signOut = () => {
       });
   };
 };
-
 export const signUp = (newUser) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firebase = getFirebase();

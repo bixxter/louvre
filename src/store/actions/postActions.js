@@ -125,6 +125,7 @@ export const editPost = (post) => {
         video: post.video,
         content: post.content,
         img: post.img,
+        tags: post.tags,
       })
       .then(() => {
         dispatch({ type: 'EDITED_POST_SUCCESS', post });

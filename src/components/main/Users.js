@@ -4,7 +4,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { deleteUser } from '../../store/actions/postActions';
 const Users = (props) => {
-  const { users, profile } = props;
+  const { users, profile, auth } = props;
   if (users) {
     return (
       <div className="container">
@@ -13,7 +13,7 @@ const Users = (props) => {
             Object.keys(users).map((user, i) => {
               return (
                 <div className="card user louvColor">
-                  {profile.role === 'neo' ? (
+                  {profile.role === 'neo' && user !== auth.uid ? (
                     <button
                       className="btn z-depth-0 louvColor"
                       onClick={(e) => {
@@ -32,6 +32,7 @@ const Users = (props) => {
                   <div className="userText louvFont">
                     <p className="louvFont">{users[user] && users[user].userName}</p>
                   </div>
+                  {user === auth.uid ? <i className="material-icons center">account_box</i> : null}
                 </div>
               );
             })}

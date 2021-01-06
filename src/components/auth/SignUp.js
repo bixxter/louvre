@@ -9,6 +9,7 @@ class SignUp extends Component {
     password: '',
     userName: '',
     img: 'https://i2.wp.com/www.vooks.net/img/2016/06/HddtBOT.png?fit=1920%2C1080&ssl=1',
+    error: '',
   };
   handleChange = (e) => {
     this.setState({
@@ -17,7 +18,17 @@ class SignUp extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.signUp(this.state);
+    const userName = this.state.userName.length;
+    if (userName !== 0) {
+      this.setState({
+        error: '',
+      });
+      this.props.signUp(this.state);
+    } else {
+      this.setState({
+        error: 'Your username should be bigger than your pepe size!(0)',
+      });
+    }
   };
   render() {
     const { auth, authError } = this.props;
@@ -29,6 +40,7 @@ class SignUp extends Component {
           <div className="input-field">
             <label htmlFor="userName">User name</label>
             <input type="text" id="userName" onChange={this.handleChange} />
+            <span className="red-text">{this.state.error && this.state.error}</span>
           </div>
           <div className="input-field">
             <label htmlFor="email">Email</label>
