@@ -38,11 +38,13 @@ class PostComments extends Component {
               return (
                 <>
                   <div className="commentBlock z-depth-0" key={i}>
-                    <img src={comment.userImg} alt="userImg" />
+                    <div className="commentImg">
+                      <img src={comment.userImg} alt="userImg" />
+                    </div>
                     <div className="commentContent">
                       <span>{comment.userName}</span>
                       <p>{comment.comment}</p>
-                      <span className="commentFunc green-text">answer </span>
+                      <span className="commentFunc green-text">answer</span>
                       {auth.uid === comment.userId || profile.role === 'neo' ? (
                         <span
                           className="commentFunc"

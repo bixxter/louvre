@@ -1,3 +1,5 @@
+import { getFirebase } from 'react-redux-firebase';
+
 export const signIn = (credentials) => {
   return (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
@@ -43,6 +45,42 @@ export const signUp = (newUser) => {
       })
       .catch((err) => {
         dispatch({ type: 'SIGNUP_ERROR', err });
+      });
+  };
+};
+export const editProfileName = (userName) => {
+  return (dispatch, getState, { getFirestore }) => {
+    const firestore = getFirestore();
+    const user = getState().firebase.auth.uid;
+    firestore
+      .collection('users')
+      .doc(user)
+      .update({
+        userName: userName,
+      })
+      .then(() => {
+        dispatch({ type: 'EDITED_PROFILE_SUCCESS', userName });
+      })
+      .catch((err) => {
+        dispatch({ type: 'EDITED_PROFILE_ERROR', err });
+      });
+  };
+};
+export const editProfileImg = (userImg) => {
+  return (dispatch, getState, { getFirestore }) => {
+    const firestore = getFirestore();
+    const user = getState().firebase.auth.uid;
+    firestore
+      .collection('users')
+      .doc(user)
+      .update({
+        img: userImg,
+      })
+      .then(() => {
+        dispatch({ type: 'EDITED_PROFILE_SUCCESS', userImg });
+      })
+      .catch((err) => {
+        dispatch({ type: 'EDITED_PROFILE_ERROR', err });
       });
   };
 };

@@ -2,6 +2,7 @@
 
 :root {
   --bg: #980028;
+  --inputs: #ebee3c;
 }
 
 body {
@@ -146,13 +147,15 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
   grid-gap: 10px;
   padding: 1rem;
   font-size: 1rem;
-  max-height: 100px;
   overflow: hidden;
 }
-.commentBlock img {
-  max-width: 100px;
+.commentImg {
+  min-width: 100px;
   border-radius: 0.3rem;
   margin: 0 auto;
+}
+.commentImg img {
+  max-height: 100px;
 }
 .commentsSection {
   margin-top: 2rem;
@@ -175,8 +178,12 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
 }
 .profileCard {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 2fr 1fr;
   font-size: 2rem;
+}
+.profileCard input[type='text']:not(.browser-default):focus:not([readonly]) {
+  border-color: #fff;
+  color: #fff;
 }
 .profileCard img {
   width: 100%;
