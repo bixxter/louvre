@@ -29,13 +29,13 @@ class App extends Component {
           <main>
             <Switch>
               <Route exact path="/" component={Gallery} />
-              <Route path="/welcome" component={Intro} />
-              <Route path="/users" component={Users} />
-              <Route path="/post/:id" component={PostDetails} />
-              <Route path="/signin" component={SignIn} />
-              <Route path="/signup" component={SignUp} />
-              <Route path="/create" component={CreatePost} />
-              <Route path="/userprofile" component={Profile} />
+              <Route exact path="/welcome" component={Intro} />
+              <Route exact path="/users" component={Users} />
+              <Route exact path="/post/:id" component={PostDetails} />
+              <Route exact path="/signin" component={SignIn} />
+              <Route exact path="/signup" component={SignUp} />
+              <Route exact path="/create" component={CreatePost} />
+              <Route exact path="/userprofile" component={Profile} />
             </Switch>
           </main>
           <Footer />
