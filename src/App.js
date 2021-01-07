@@ -27,13 +27,14 @@ class App extends Component {
           <main>
             <Switch>
               <Route exact path="/" component={Gallery} />
-              <Route exact path="/welcome" component={Intro} />
-              <Route exact path="/users" component={Users} />
-              <Route path="/post/:id" component={PostDetails} />
-              <Route path="/signin" component={SignIn} />
-              <Route path="/signup" component={SignUp} />
-              <Route path="/create" component={CreatePost} />
-              <Route path="/userprofile" component={Profile} />
+              <Route exact path="/louvre/" component={Gallery} />
+              <Route exact path="/louvre/welcome" component={Intro} />
+              <Route exact path="/louvre/users" component={Users} />
+              <Route exact path="/post/:id" component={PostDetails} />
+              <Route exact path="/louvre/signin" component={SignIn} />
+              <Route exact path="/louvre/signup" component={SignUp} />
+              <Route exact path="/louvre/create" component={CreatePost} />
+              <Route exact path="/louvre/userprofile" component={Profile} />
             </Switch>
           </main>
           <Footer />
