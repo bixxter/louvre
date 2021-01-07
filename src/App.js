@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route, withRouter } from 'react-router-dom';
 import Profile from './components/auth/Profile';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
@@ -19,29 +19,29 @@ class App extends Component {
     M.Sidenav.init(sidenav, {});
   }
   render() {
+    console.log(this.props);
     return (
-      <BrowserRouter>
+      <HashRouter basename="/">
         <div className="App">
           <Header />
           <Navbar />
           <main>
             <Switch>
               <Route exact path="/" component={Gallery} />
-              <Route exact path="/louvre/" component={Gallery} />
-              <Route exact path="/louvre/welcome" component={Intro} />
-              <Route exact path="/louvre/users" component={Users} />
-              <Route exact path="/post/:id" component={PostDetails} />
-              <Route exact path="/louvre/signin" component={SignIn} />
-              <Route exact path="/louvre/signup" component={SignUp} />
-              <Route exact path="/louvre/create" component={CreatePost} />
-              <Route exact path="/louvre/userprofile" component={Profile} />
+              <Route path="/welcome" component={Intro} />
+              <Route path="/users" component={Users} />
+              <Route path="/post/:id" component={PostDetails} />
+              <Route path="/signin" component={SignIn} />
+              <Route path="/signup" component={SignUp} />
+              <Route path="/create" component={CreatePost} />
+              <Route path="/userprofile" component={Profile} />
             </Switch>
           </main>
           <Footer />
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

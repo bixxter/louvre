@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { applyMiddleware, createStore, compose } from 'redux';
+import { BrowserRouter } from 'react-router-dom';
 import rootReducer from './store/reducers/rootReducer';
 import { Provider, useSelector } from 'react-redux';
 import thunk from 'redux-thunk';
@@ -51,7 +52,9 @@ ReactDOM.render(
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
         <AuthIsLoaded>
-          <App />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
         </AuthIsLoaded>
       </ReactReduxFirebaseProvider>
     </Provider>
