@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/louvre/static/css/main.71b6085d.chunk.css",
-    "main.js": "/louvre/static/js/main.1c65d73d.chunk.js",
-    "main.js.map": "/louvre/static/js/main.1c65d73d.chunk.js.map",
+    "main.js": "/louvre/static/js/main.a39bc3c8.chunk.js",
+    "main.js.map": "/louvre/static/js/main.a39bc3c8.chunk.js.map",
     "runtime-main.js": "/louvre/static/js/runtime-main.b3535149.js",
     "runtime-main.js.map": "/louvre/static/js/runtime-main.b3535149.js.map",
     "static/js/2.1c059087.chunk.js": "/louvre/static/js/2.1c059087.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.b3535149.js",
     "static/js/2.1c059087.chunk.js",
     "static/css/main.71b6085d.chunk.css",
-    "static/js/main.1c65d73d.chunk.js"
+    "static/js/main.a39bc3c8.chunk.js"
   ]
 }
