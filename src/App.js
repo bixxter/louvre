@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter, Switch, Route, withRouter } from 'react-router-dom';
+import { HashRouter, Switch, Route, BrowserRouter } from 'react-router-dom';
 import Profile from './components/auth/Profile';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
@@ -21,7 +21,8 @@ class App extends Component {
   render() {
     console.log(this.props);
     return (
-      <HashRouter basename="/">
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        {/* <HashRouter basename="/"> */}
         <div className="App">
           <Header />
           <Navbar />
@@ -39,9 +40,10 @@ class App extends Component {
           </main>
           <Footer />
         </div>
-      </HashRouter>
+        {/* </HashRouter> */}
+      </BrowserRouter>
     );
   }
 }
 
-export default withRouter(App);
+export default App;
