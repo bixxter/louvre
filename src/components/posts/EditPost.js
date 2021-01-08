@@ -12,6 +12,7 @@ class EditPost extends Component {
     tags: this.props.post.tags,
   };
   handleChange = (e) => {
+    e.preventDefault();
     this.setState({
       [e.target.id]: e.target.value,
     });
@@ -56,6 +57,11 @@ class EditPost extends Component {
           <div className="input-field">
             <label htmlFor="tags">Tags</label>
             <input type="text" id="tags" onChange={this.handleChange} value={this.state.tags} />
+            {this.state.tags && this.state.tags.length > 0 ? (
+              <span className="green-text">
+                *please use "," to devide tags <br /> example: video, audio, lol
+              </span>
+            ) : null}
           </div>
           <div className="input-field">
             <button className="btn louvColor lighten-1 z-depth-0">Change</button>

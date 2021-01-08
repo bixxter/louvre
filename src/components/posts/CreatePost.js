@@ -47,9 +47,12 @@ class CreatePost extends Component {
           <div className="input-field">
             <label htmlFor="tags">Tags</label>
             <input type="text" id="tags" onChange={this.handleChange} />
-            <span className="red-text">
-              *please use "," to devide tags <br /> example: video, audio, lol
-            </span>
+
+            {this.state.tags.length === 0 ? null : (
+              <span className="green-text">
+                *please use "," to devide tags <br /> example: video, audio, lol{' '}
+              </span>
+            )}
           </div>
           <div className="input-field">
             <button className="btn louvColor lighten-1 z-depth-0">Create</button>

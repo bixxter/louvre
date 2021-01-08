@@ -47,6 +47,17 @@ input[type='email']:not(.browser-default):focus:not([readonly]) + label,
 input[type='password']:not(.browser-default):focus:not([readonly]) + label {
   color: var(--bg) !important;
 }
+/*Night mode*/
+.nightMode {
+  cursor: pointer;
+  padding: 0 0.5rem;
+}
+.nightMode:hover {
+  background: #890024;
+}
+.darkMode {
+  background: #333;
+}
 /*Init*/
 .louvColor {
   background: var(--bg);

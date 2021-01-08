@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signOut } from '../../store/actions/authActions';
 import { Redirect } from 'react-router-dom';
+
 const SignedInLinks = (props) => {
   const { profile, auth } = props;
+  const [nightMode, setNightMode] = useState(false);
   const admin = profile.role === 'neo' ? <NavLink to="/create">Create opinion</NavLink> : null;
+  function darkMode() {
+    var element = document.body;
+    element.classList.toggle('darkMode');
+  }
+
   if (!auth.uid) return <Redirect to="/signin" />;
   return (
     <>
@@ -19,6 +26,17 @@ const SignedInLinks = (props) => {
       <li>
         <a href="/" onClick={props.signOut}>
           Log Out
+        </a>
+      </li>
+      <li>
+        <a
+          className={nightMode === true ? 'btn black white-text' : 'btn white black-text'}
+          onClick={(e) => {
+            e.preventDefault();
+            setNightMode(!nightMode);
+            darkMode();
+          }}>
+          {nightMode === true ? 'day' : 'night'}
         </a>
       </li>
     </>
