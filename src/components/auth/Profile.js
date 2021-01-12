@@ -30,7 +30,7 @@ function Profile(props) {
     <div className="container">
       <div className="card hogBlock profileCard louvColor">
         <img src={profileImg} alt="userImg" className="responsive-img" />
-        <div className=" profileText louvFont">
+        <div className="profileText louvFont">
           {editMode === false ? (
             <>
               <p className="louvFont">{profile.userName}</p>

@@ -15,85 +15,98 @@ class PostDetails extends Component {
   render() {
     const { post, auth, postId, profile } = this.props;
     const editor = <EditPost post={post} postId={postId} />;
+    const postHeader = {
+      background: `url(${post.img}) no-repeat`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed',
+      minHeight: '300px',
+      color: '#fff',
+      display: 'flex',
+    };
     if (!auth.uid) return <Redirect to="/signin" />;
     if (post) {
       return (
-        <div className="container section postDetail">
-          <div className="card z-depth-0">
-            <div className="card-content">
-              <div className="editMode right">
-                {profile.role === 'neo' ? (
+        <div className="postDetail">
+          <div className="postHeader" style={postHeader}>
+            <h1 className="louvColor">{post.title}</h1>
+          </div>
+          <div className="container">
+            <div className="card z-depth-0">
+              <div className="card-content">
+                <div className="editMode right">
+                  {profile.role === 'neo' ? (
+                    <button
+                      className="btn louvColor"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        this.setState({
+                          editMode: !this.state.editMode,
+                        });
+                      }}>
+                      {this.state.editMode === false ? (
+                        <i className="material-icons">edit</i>
+                      ) : (
+                        <i className="material-icons">cancel</i>
+                      )}
+                    </button>
+                  ) : null}
+                </div>
+                {this.state.editMode === true ? editor : null}
+                <div className="postTitle">
                   <button
-                    className="btn louvColor"
+                    className="btn z-depth-0 grey"
                     onClick={(e) => {
-                      e.preventDefault();
-                      this.setState({
-                        editMode: !this.state.editMode,
-                      });
+                      this.props.history.push('/');
                     }}>
-                    {this.state.editMode === false ? (
-                      <i className="material-icons">edit</i>
-                    ) : (
-                      <i className="material-icons">cancel</i>
-                    )}
+                    <i className="material-icons">chevron_left</i>
                   </button>
-                ) : null}
-              </div>
-              {this.state.editMode === true ? editor : null}
-              <div className="postTitle">
-                <span className="card-title">{post.title}</span>
-                <button
-                  className="btn z-depth-0 grey"
-                  onClick={(e) => {
-                    this.props.history.push('/');
-                  }}>
-                  <i className="material-icons">chevron_left</i>
-                </button>
-                {profile.role === 'neo' ? (
-                  <div className="edit right">
-                    <div className="delPost">
-                      <button
-                        className="btn z-depth-0 red"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          this.props.deletePost(postId);
-                          this.props.history.push('/');
-                        }}>
-                        <i className="material-icons">clear</i>
-                      </button>
+                  {profile.role === 'neo' ? (
+                    <div className="edit right">
+                      <div className="delPost">
+                        <button
+                          className="btn z-depth-0 red"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            this.props.deletePost(postId);
+                            this.props.history.push('/');
+                          }}>
+                          <i className="material-icons">clear</i>
+                        </button>
+                      </div>
                     </div>
+                  ) : null}
+                </div>
+                {post.video ? (
+                  <div className="video-container">
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: post.video,
+                      }}></div>
                   </div>
                 ) : null}
-              </div>
-              {post.video ? (
-                <div className="video-container">
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: post.video,
-                    }}></div>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: post.content,
+                  }}></div>
+                <div className="like">
+                  <button
+                    className="btn black pulse"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      this.props.likePost(postId);
+                    }}>
+                    <i className="material-icons white-text">flash_on</i>
+                    {post.likes}
+                  </button>
                 </div>
-              ) : null}
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: post.content,
-                }}></div>
-              <div className="like">
-                <button
-                  className="btn black pulse"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    this.props.likePost(postId);
-                  }}>
-                  <i className="material-icons white-text">flash_on</i>
-                  {post.likes}
-                </button>
-              </div>
-              <div className="card-action grey lighten-4 grey-text">
-                <div>Posted by: {post.authorUserName}</div>
-                <div>{moment(post.createdAt.toDate()).calendar()}</div>
-              </div>
-              <div className="comments">
-                <PostComments post={post} postId={postId} />
+                <div className="card-action grey lighten-4 grey-text">
+                  <div>Posted by: {post.authorUserName}</div>
+                  <div>{moment(post.createdAt.toDate()).calendar()}</div>
+                </div>
+                <div className="comments">
+                  <PostComments post={post} postId={postId} />
+                </div>
               </div>
             </div>
           </div>

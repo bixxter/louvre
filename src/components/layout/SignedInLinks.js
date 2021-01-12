@@ -12,7 +12,6 @@ const SignedInLinks = (props) => {
     var element = document.body;
     element.classList.toggle('darkMode');
   }
-
   if (!auth.uid) return <Redirect to="/signin" />;
   return (
     <>
@@ -24,9 +23,7 @@ const SignedInLinks = (props) => {
         <NavLink to="/userprofile">{profile.userName}</NavLink>
       </li>
       <li>
-        <a href="/" onClick={props.signOut}>
-          Log Out
-        </a>
+        <a onClick={props.signOut}>Log Out</a>
       </li>
       <li>
         <a

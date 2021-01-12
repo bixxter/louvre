@@ -25,8 +25,20 @@ class PostComments extends Component {
     this.props.subComment(this.state);
     e.target.reset();
   };
+
   render() {
     const { post, auth, profile } = this.props;
+    const commentHandle = (
+      <div className="input-field">
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="comment">Comment</label>
+          <textarea id="comment" className="materialize-textarea" onChange={this.handleChange} />
+          <button type="submit" className="btn z-depth-0 louvColor">
+            Leave a comment
+          </button>
+        </form>
+      </div>
+    );
     return (
       <div className="commentsSection">
         <p>
@@ -44,7 +56,7 @@ class PostComments extends Component {
                     <div className="commentContent">
                       <span>{comment.userName}</span>
                       <p>{comment.comment}</p>
-                      <span className="commentFunc green-text">answer </span>
+                      <span className="commentFunc green-text">answer</span>
                       {auth.uid === comment.userId || profile.role === 'neo' ? (
                         <span
                           className="commentFunc"
@@ -61,15 +73,7 @@ class PostComments extends Component {
               );
             })}
         </div>
-        <div className="input-field">
-          <form onSubmit={this.handleSubmit}>
-            <label htmlFor="comment">Comment</label>
-            <textarea id="comment" className="materialize-textarea" onChange={this.handleChange} />
-            <button type="submit" className="btn z-depth-0 louvColor">
-              Leave a comment
-            </button>
-          </form>
-        </div>
+        {commentHandle}
       </div>
     );
   }

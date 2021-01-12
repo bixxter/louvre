@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { deleteUser } from '../../store/actions/postActions';
 const Users = (props) => {
   const { users, profile, auth } = props;
+  if (!auth.uid) return <Redirect to="/signin" />;
   if (users) {
     return (
       <div className="container">
