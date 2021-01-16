@@ -23,8 +23,12 @@ class PostSummary extends Component {
             </span>
             {post.tags && (
               <div className="tags">
-                {post.tags.split(',').map((tag) => {
-                  return <span className="tag">{tag}</span>;
+                {post.tags.split(',').map((tag, key) => {
+                  return (
+                    <span className="tag" key={key}>
+                      {tag}
+                    </span>
+                  );
                 })}
               </div>
             )}

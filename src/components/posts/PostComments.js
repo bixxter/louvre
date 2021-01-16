@@ -48,8 +48,8 @@ class PostComments extends Component {
           {post.comments &&
             post.comments.map((comment, i) => {
               return (
-                <>
-                  <div className="commentBlock z-depth-0" key={i}>
+                <div key={i}>
+                  <div className="commentBlock z-depth-0">
                     <div className="commentImg">
                       <img src={comment.userImg} alt="userImg" />
                     </div>
@@ -69,7 +69,7 @@ class PostComments extends Component {
                       ) : null}
                     </div>
                   </div>
-                </>
+                </div>
               );
             })}
         </div>

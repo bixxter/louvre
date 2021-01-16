@@ -15,7 +15,7 @@ export const createPost = (post) => {
         answers: [],
       })
       .then(() => {
-        dispatch({ type: 'CREATE_POST_SUCCESS', post });
+        dispatch({ type: 'CREATE_POST_SUCCESS' });
       })
       .catch((err) => {
         dispatch({ type: 'CREATE_POST_ERROR', err });
@@ -34,7 +34,7 @@ export const likePost = (postToLike) => {
         likes: firebase.firestore.FieldValue.increment(1),
       })
       .then(() => {
-        dispatch({ type: 'LIKE_SUCCESS', postToLike });
+        dispatch({ type: 'LIKE_SUCCESS' });
       })
       .catch((err) => {
         dispatch({ type: 'LIKE_ERROR', err });
@@ -45,7 +45,6 @@ export const leaveComment = (comment) => {
   return (dispatch, getState, { getFirestore, getFirebase }) => {
     const firestore = getFirestore();
     const firebase = getFirebase();
-    console.log(comment);
     firestore
       .collection('posts')
       .doc(comment.postId)
@@ -53,7 +52,7 @@ export const leaveComment = (comment) => {
         comments: firebase.firestore.FieldValue.arrayUnion(comment),
       })
       .then(() => {
-        dispatch({ type: 'COMMENT_SUCCESS', comment });
+        dispatch({ type: 'COMMENT_SUCCESS' });
       })
       .catch((err) => {
         dispatch({ type: 'COMMENT_ERROR', err });
@@ -64,7 +63,6 @@ export const subComment = (comment) => {
   return (dispatch, getState, { getFirestore, getFirebase }) => {
     const firestore = getFirestore();
     const firebase = getFirebase();
-    console.log(comment);
     firestore
       .collection('posts')
       .doc(comment.postId)
@@ -72,7 +70,7 @@ export const subComment = (comment) => {
         answers: firebase.firestore.FieldValue.arrayUnion(comment),
       })
       .then(() => {
-        dispatch({ type: 'COMMENT_SUCCESS', comment });
+        dispatch({ type: 'COMMENT_SUCCESS' });
       })
       .catch((err) => {
         dispatch({ type: 'COMMENT_ERROR', err });
@@ -83,7 +81,6 @@ export const deleteComment = (comment) => {
   return (dispatch, getState, { getFirestore, getFirebase }) => {
     const firestore = getFirestore();
     const firebase = getFirebase();
-    console.log(comment);
     firestore
       .collection('posts')
       .doc(comment.postId)
@@ -91,7 +88,7 @@ export const deleteComment = (comment) => {
         comments: firebase.firestore.FieldValue.arrayRemove(comment),
       })
       .then(() => {
-        dispatch({ type: 'DELETE_COMMENT_SUCCESS', comment });
+        dispatch({ type: 'DELETE_COMMENT_SUCCESS' });
       })
       .catch((err) => {
         dispatch({ type: 'DELETE_COMMENT_ERROR', err });
@@ -106,7 +103,7 @@ export const deletePost = (post) => {
       .doc(post)
       .delete()
       .then(() => {
-        dispatch({ type: 'DELETE_POST_SUCCESS', post });
+        dispatch({ type: 'DELETE_POST_SUCCESS' });
       })
       .catch((err) => {
         dispatch({ type: 'DELETE_POST_ERROR', err });
@@ -128,7 +125,7 @@ export const editPost = (post) => {
         tags: post.tags,
       })
       .then(() => {
-        dispatch({ type: 'EDITED_POST_SUCCESS', post });
+        dispatch({ type: 'EDITED_POST_SUCCESS' });
       })
       .catch((err) => {
         dispatch({ type: 'EDITED_POST_ERROR', err });
@@ -144,7 +141,7 @@ export const deleteUser = (user) => {
       .doc(user)
       .delete()
       .then(() => {
-        dispatch({ type: 'DELETE_USER_SUCCESS', user });
+        dispatch({ type: 'DELETE_USER_SUCCESS' });
       })
       .catch((err) => {
         dispatch({ type: 'DELETE_USER_ERROR', err });

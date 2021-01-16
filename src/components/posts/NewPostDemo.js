@@ -1,6 +1,5 @@
 import React from 'react';
 const NewPostDemo = ({ post }) => {
-  console.log(post);
   return (
     <div className="postDemo">
       <div className="card post">

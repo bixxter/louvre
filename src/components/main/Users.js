@@ -14,7 +14,7 @@ const Users = (props) => {
           {users &&
             Object.keys(users).map((user, i) => {
               return (
-                <div className="card user louvColor">
+                <div className="card user louvColor" key={i}>
                   {profile.role === 'neo' && user !== auth.uid ? (
                     <button
                       className="btn z-depth-0 louvColor"

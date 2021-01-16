@@ -29,7 +29,7 @@ const authReducer = (state = initState, action) => {
         authError: action.err.message,
       };
     case 'EDITED_PROFILE_SUCCESS':
-      console.log('edited profile', action.userName);
+      console.log('edited profile');
       return state;
     case 'EDITED_PROFILE_ERROR':
       console.log('edited profile error', action.err);

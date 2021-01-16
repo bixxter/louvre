@@ -19,10 +19,8 @@ class App extends Component {
     M.Sidenav.init(sidenav, {});
   }
   render() {
-    console.log(this.props);
     return (
       <BrowserRouter>
-        {/* basename={process.env.PUBLIC_URL} */}
         <HashRouter basename="/">
           <div className="App">
             <Header />

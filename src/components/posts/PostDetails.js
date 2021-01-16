@@ -105,8 +105,12 @@ class PostDetails extends Component {
                 </div>
                 {post.tags && (
                   <div className="tags">
-                    {post.tags.split(',').map((tag) => {
-                      return <span className="tag">{tag}</span>;
+                    {post.tags.split(',').map((tag, i) => {
+                      return (
+                        <span className="tag" key={i}>
+                          {tag}
+                        </span>
+                      );
                     })}
                   </div>
                 )}
