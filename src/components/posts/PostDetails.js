@@ -65,7 +65,7 @@ class PostDetails extends Component {
                     <div className="edit right">
                       <div className="delPost">
                         <button
-                          className="btn z-depth-0 red"
+                          className="btn z-depth-0 louvColor"
                           onClick={(e) => {
                             e.preventDefault();
                             this.props.deletePost(postId);
@@ -85,21 +85,31 @@ class PostDetails extends Component {
                       }}></div>
                   </div>
                 ) : null}
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: post.content,
-                  }}></div>
-                <div className="like">
-                  <button
-                    className="btn black pulse"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      this.props.likePost(postId);
-                    }}>
-                    <i className="material-icons white-text">flash_on</i>
-                    {post.likes}
-                  </button>
+
+                <div className="postInnerContent">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: post.content,
+                    }}></div>
+                  <div className="postLike">
+                    <button
+                      className="btn black pulse"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        this.props.likePost(postId);
+                      }}>
+                      <i className="material-icons white-text">flash_on</i>
+                      {post.likes}
+                    </button>
+                  </div>
                 </div>
+                {post.tags && (
+                  <div className="tags">
+                    {post.tags.split(',').map((tag) => {
+                      return <span className="tag">{tag}</span>;
+                    })}
+                  </div>
+                )}
                 <div className="card-action grey lighten-4 grey-text">
                   <div>Posted by: {post.authorUserName}</div>
                   <div>{moment(post.createdAt.toDate()).calendar()}</div>

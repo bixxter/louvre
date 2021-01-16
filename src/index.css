@@ -97,6 +97,7 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
   display: flex;
   padding: 2rem;
   color: #fff;
+  text-align: center;
 }
 .footerContent {
   margin: auto;
@@ -125,6 +126,17 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
 }
 .postHeader h1 {
   margin: auto;
+  padding: 1rem;
+}
+.postInnerContent {
+  margin: 1rem 0;
+  font-size: 1.3rem;
+}
+.postInnerContent a {
+  text-decoration: underline;
+}
+.postLike {
+  margin: 1rem 0;
 }
 /* .postHeader {
   max-height: 400px;
@@ -191,7 +203,9 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
   grid-template-columns: 1fr 1fr;
   grid-gap: 40px;
   padding: 1rem;
-  border-bottom: 2px solid var(--bg);
+}
+.introContent img {
+  max-width: 100%;
 }
 .profileCard {
   display: grid;
@@ -241,6 +255,12 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
   .profileCard {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+  .introContent section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    padding: 1rem;
   }
 }
 @media only screen and (max-width: 600px) {

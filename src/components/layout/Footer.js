@@ -12,6 +12,7 @@ const Header = () => {
             rel="noreferrer">
             bixxter
           </a>
+          <p className="yellow-text">сайт на стадии разработки </p>
         </div>
       </div>
     </footer>
