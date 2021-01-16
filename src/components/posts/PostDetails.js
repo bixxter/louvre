@@ -16,8 +16,8 @@ class PostDetails extends Component {
     const { post, auth, postId, profile } = this.props;
     const editor = <EditPost post={post} postId={postId} />;
     const postHeader = {
-      background: `url(${post.img}) no-repeat`,
-      backgroundSize: 'cover',
+      background: `url(${post && post.img}) no-repeat`,
+      backgroundSize: 'cover  ',
       backgroundPosition: 'center',
       backgroundAttachment: 'fixed',
       minHeight: '300px',
