@@ -313,9 +313,9 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
     display: grid;
     grid-template-columns: 1fr;
   }
-  .profileCard img {
-    min-height: 200px;
-  }
+  /* .profileCard img {
+    min-height: 100px;
+  } */
   h1,
   h2,
   h3 {
