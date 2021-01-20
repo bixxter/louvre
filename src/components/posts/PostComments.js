@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { leaveComment, deleteComment, subComment } from '../../store/actions/postActions';
+import { Link } from 'react-router-dom';
 
 class PostComments extends Component {
   state = {
@@ -54,9 +55,9 @@ class PostComments extends Component {
                       <img src={comment.userImg} alt="userImg" />
                     </div>
                     <div className="commentContent">
-                      <span>{comment.userName}</span>
+                      <span className="green-text">{comment.userName}</span>
                       <p>{comment.comment}</p>
-                      <span className="commentFunc green-text">answer</span>
+                      {/* {auth.uid ? <span className="commentFunc green-text">answer </span> : null} */}
                       {auth.uid === comment.userId || profile.role === 'neo' ? (
                         <span
                           className="commentFunc"
@@ -73,7 +74,15 @@ class PostComments extends Component {
               );
             })}
         </div>
-        {commentHandle}
+
+        {auth.uid ? (
+          commentHandle
+        ) : (
+          <p className="center red-text">
+            <Link to="/signup">Зарегистрируйтесь</Link> или <Link to="/signin">войдите</Link>, чтобы
+            оставить комментарий. <br />
+          </p>
+        )}
       </div>
     );
   }

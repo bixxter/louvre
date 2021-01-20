@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
@@ -6,10 +6,17 @@ import { connect } from 'react-redux';
 import Profile from './Profile';
 const Navbar = (props) => {
   const { auth, profile } = props;
+  const [nightMode, setNightMode] = useState(false);
+
   const links = auth.uid ? <SignedInLinks profile={profile} /> : <SignedOutLinks />;
   const userMobile = auth.uid ? <Profile profile={profile} /> : null;
+
+  function darkMode() {
+    var element = document.body;
+    element.classList.toggle('darkMode');
+  }
   return (
-    <nav className="nav-wrapper louvColor navBar">
+    <nav id="navbar" className="nav-wrapper navBar">
       <div className="container">
         <Link to="/" className="brand-logo louvFont">
           Louvre
@@ -23,6 +30,17 @@ const Navbar = (props) => {
               <Link to="/welcome">About</Link>
             </li>
             {links}
+            <li>
+              <a
+                className={nightMode === true ? 'btn black white-text' : 'btn white black-text'}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setNightMode(!nightMode);
+                  darkMode();
+                }}>
+                {nightMode === true ? 'day' : 'night'}
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -37,6 +55,17 @@ const Navbar = (props) => {
           <Link to="/welcome">About</Link>
         </li>
         {links}
+        <li>
+          <a
+            className={nightMode === true ? 'btn black white-text' : 'btn white black-text'}
+            onClick={(e) => {
+              e.preventDefault();
+              setNightMode(!nightMode);
+              darkMode();
+            }}>
+            {nightMode === true ? 'day' : 'night'}
+          </a>
+        </li>
       </ul>
     </nav>
   );

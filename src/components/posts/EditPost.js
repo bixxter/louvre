@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editPost } from '../../store/actions/postActions';
 import { Redirect } from 'react-router-dom';
+import MDEditor from '@uiw/react-md-editor';
 class EditPost extends Component {
   state = {
     id: this.props.postId,
@@ -20,6 +21,10 @@ class EditPost extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.editPost(this.state);
+  };
+  updateMarkdown = (value) => {
+    console.log(value);
+    this.setState({ content: value });
   };
   render() {
     const { profile } = this.props;
@@ -43,12 +48,7 @@ class EditPost extends Component {
           </div>
           <div className="input-field">
             <label htmlFor="content">Content</label>
-            <textarea
-              id="content"
-              className="materialize-textarea"
-              onChange={this.handleChange}
-              value={this.state.content}
-            />
+            <MDEditor value={this.state.content} onChange={this.updateMarkdown} />
           </div>
           <div className="input-field">
             <label htmlFor="img">Image</label>

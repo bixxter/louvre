@@ -7,7 +7,6 @@ import { Redirect } from 'react-router-dom';
 class Gallery extends Component {
   render() {
     const { posts, auth } = this.props;
-    if (!auth.uid) return <Redirect to="/welcome" />;
     return (
       <div>
         <PostsList posts={posts} />

@@ -33,6 +33,7 @@ const Users = (props) => {
                   />
                   <div className="userText louvFont">
                     <p className="louvFont">{users[user] && users[user].userName}</p>
+                    {users[user].role === 'neo' ? <p className="green-text center">neo</p> : null}
                   </div>
                   {user === auth.uid ? <i className="material-icons center">account_box</i> : null}
                 </div>

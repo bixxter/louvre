@@ -50,9 +50,15 @@ class SignUp extends Component {
             <label htmlFor="password">Password</label>
             <input type="password" id="password" onChange={this.handleChange} />
           </div>
-          <div className="input-field">
-            <label htmlFor="img">Link to image for profile picture</label>
-            <input type="text" id="img" onChange={this.handleChange} />
+          <div className="signUpImg">
+            <div className="input-field">
+              <label htmlFor="img">Link to image for profile picture</label>
+              <input type="text" id="img" onChange={this.handleChange} />
+              <span className="grey-text">
+                * Скопируйте ссылку на любую фотографию с интернета, и вставьте сюда.
+              </span>
+            </div>
+            <img src={this.state.img} alt="profile_preview" className="responsive-img" />
           </div>
           <div className="input-field">
             <button className="btn louvColor z-depth-0">Sign Up</button>

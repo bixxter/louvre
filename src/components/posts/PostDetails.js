@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
-import moment from 'moment';
 import { likePost, deletePost } from '../../store/actions/postActions';
+import moment from 'moment';
 import PostComments from './PostComments';
 import EditPost from './EditPost';
+import MDEditor from '@uiw/react-md-editor';
 
 class PostDetails extends Component {
   state = {
@@ -24,7 +25,6 @@ class PostDetails extends Component {
       color: '#fff',
       display: 'flex',
     };
-    if (!auth.uid) return <Redirect to="/signin" />;
     if (post) {
       return (
         <div className="postDetail">
@@ -87,10 +87,11 @@ class PostDetails extends Component {
                 ) : null}
 
                 <div className="postInnerContent">
-                  <div
+                  {/* <div
                     dangerouslySetInnerHTML={{
                       __html: post.content,
-                    }}></div>
+                    }}></div> */}
+                  <MDEditor.Markdown source={post.content} />
                   <div className="postLike">
                     <button
                       className="btn black pulse"

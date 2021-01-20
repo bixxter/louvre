@@ -18,9 +18,6 @@ body {
 main {
   flex: 1 0 auto;
 }
-a {
-  color: #333;
-}
 form {
   padding: 2rem;
   margin: 2rem 0;
@@ -64,6 +61,12 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
 }
 .louvFont {
   font-family: 'Bebas Neue', cursive;
+}
+.navBar {
+  background: var(--bg);
+}
+.navBar a {
+  text-decoration: none;
 }
 .navBar ul li a {
   font-size: 1.2em;
@@ -117,6 +120,17 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
   grid-gap: 40px;
   padding: 1rem;
 }
+.posts a {
+  color: #333;
+}
+.postImage {
+  filter: grayscale(0);
+  transition: 600ms ease-out;
+}
+.post:hover .postImage {
+  filter: grayscale(1);
+}
+
 .postContent {
   transition: 300ms ease-in-out;
   display: flex;
@@ -189,6 +203,9 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
 .commentsSection {
   margin-top: 2rem;
 }
+.commentsSection a {
+  text-decoration: underline;
+}
 .commentFunc {
   color: var(--bg);
 }
@@ -198,11 +215,15 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
   text-decoration: underline;
 }
 /*Intro page*/
+.introContent {
+  height: 100%;
+}
 .introContent section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 40px;
   padding: 1rem;
+  height: 100%;
 }
 .introContent img {
   max-width: 100%;
@@ -242,6 +263,20 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
 .userText {
   margin: auto;
 }
+
+/*SignUp*/
+.signUpImg {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+}
+.signUpImg * {
+  margin: auto;
+}
+.signUpImg img {
+  border-radius: 0.2rem;
+}
+
 @media only screen and (max-width: 900px) {
   .posts,
   .usersList {
@@ -261,6 +296,11 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
     grid-template-columns: 1fr;
     grid-gap: 10px;
     padding: 1rem;
+  }
+  .signUpImg {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
   }
 }
 @media only screen and (max-width: 600px) {

@@ -1,5 +1,7 @@
 import React from 'react';
-const NewPostDemo = ({ post }) => {
+import MDEditor from '@uiw/react-md-editor';
+const NewPostDemo = (props) => {
+  const { post } = props;
   return (
     <div className="postDemo">
       <div className="card post">
@@ -20,10 +22,13 @@ const NewPostDemo = ({ post }) => {
                   }}></div>
               </div>
             ) : null}
-            <div
-              dangerouslySetInnerHTML={{
-                __html: post.content,
-              }}></div>
+            <div className="content">
+              {/* <div
+                dangerouslySetInnerHTML={{
+                  __html: post.content,
+                }}></div> */}
+              <MDEditor.Markdown source={post.content} />
+            </div>
             <span className="card-title pulse louvFontColor ">
               <i className="material-icons">flash_on</i>
             </span>

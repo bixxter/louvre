@@ -11,7 +11,7 @@ class PostSummary extends Component {
       <div className="post">
         <div className="card z-depth-0">
           <div className="card-image postImage">
-            <img src={post.img} alt="" />
+            <img src={post.img} alt="post-image" />
           </div>
           <div className="card-content postContent">
             <span className="card-title postTitle">{post.title}</span>

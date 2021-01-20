@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import { createPost } from '../../store/actions/postActions';
 import { Redirect } from 'react-router-dom';
 import NewPostDemo from './NewPostDemo';
+import MDEditor from '@uiw/react-md-editor';
+
 class CreatePost extends Component {
   state = {
     title: '',
     video: '',
-    content: '',
     img: '',
+    content: '',
     tags: '',
     demo: false,
   };
@@ -27,6 +29,10 @@ class CreatePost extends Component {
     this.setState({
       demo: !this.state.demo,
     });
+  };
+  updateMarkdown = (value) => {
+    console.log(value);
+    this.setState({ content: value });
   };
   render() {
     const { auth, profile } = this.props;
@@ -50,8 +56,7 @@ class CreatePost extends Component {
             <textarea id="video" className="materialize-textarea" onChange={this.handleChange} />
           </div>
           <div className="input-field">
-            <label htmlFor="content">Content</label>
-            <textarea id="content" className="materialize-textarea" onChange={this.handleChange} />
+            <MDEditor value={this.state.content} onChange={this.updateMarkdown} />
           </div>
           <div className="input-field">
             <label htmlFor="img">Image</label>

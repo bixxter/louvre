@@ -11,7 +11,7 @@ function Profile(props) {
   const editButton = (
     <>
       <button
-        className="btn louvColor z-depth-0"
+        className="btn z-depth-0"
         onClick={(e) => {
           e.preventDefault();
           setEditMode(!editMode);
@@ -28,7 +28,7 @@ function Profile(props) {
   if (!auth.uid) return <Redirect to="/signin" />;
   return (
     <div className="container">
-      <div className="card hogBlock profileCard louvColor">
+      <div className="card profileCard louvColor">
         <img src={profileImg} alt="userImg" className="responsive-img" />
         <div className="profileText louvFont">
           {editMode === false ? (
