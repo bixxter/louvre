@@ -314,7 +314,7 @@ input[type='password']:not(.browser-default):focus:not([readonly]) + label {
     grid-template-columns: 1fr;
   }
   .profileCard img {
-    min-height: 500px;
+    min-height: 100%;
   }
   h1,
   h2,
