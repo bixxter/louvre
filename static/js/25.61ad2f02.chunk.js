@@ -1,0 +1,2 @@
+(this.webpackJsonplouvre=this.webpackJsonplouvre||[]).push([[25],{289:function(e,n){Prism.languages.arff={comment:/%.*/,string:{pattern:/(["'])(?:\\.|(?!\1)[^\\\r\n])*\1/,greedy:!0},keyword:/@(?:attribute|data|end|relation)\b/i,number:/\b\d+(?:\.\d+)?\b/,punctuation:/[{},]/}}}]);
+//# sourceMappingURL=25.61ad2f02.chunk.js.map
