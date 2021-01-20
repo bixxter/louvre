@@ -29,7 +29,7 @@ function Profile(props) {
   return (
     <div className="container">
       <div className="card profileCard louvColor">
-        <img src={profileImg} alt="userImg" className="responsive-img" />
+        <img src={profileImg} alt="userImg" />
         <div className="profileText louvFont">
           {editMode === false ? (
             <>
